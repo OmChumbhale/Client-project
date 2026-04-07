@@ -15,10 +15,17 @@ async function authRequest(path, options = {}) {
       },
     });
 
-    const payload = await response.json().catch(() => ({}));
+    const responseText = await response.text();
+    let payload = null;
+
+    try {
+      payload = responseText ? JSON.parse(responseText) : null;
+    } catch {
+      payload = null;
+    }
 
     if (!response.ok) {
-      throw new Error(payload.message || 'Authentication request failed');
+      throw new Error(payload?.message || responseText || 'Authentication request failed');
     }
 
     return payload;
