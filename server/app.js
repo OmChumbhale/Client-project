@@ -75,15 +75,19 @@ app.use(async (_request, _response, next) => {
   }
 });
 
-app.get('/api/health', (_request, response) => {
+function sendHealthResponse(_request, response) {
   response.json({
     ok: true,
     dataMode: process.env.DATA_MODE || 'database',
     mongoConnected: mongoose.connection.readyState === 1,
   });
-});
+}
+
+app.get('/health', sendHealthResponse);
+app.get('/api/health', sendHealthResponse);
 
 app.use('/api', apiRouter);
+app.use('/', apiRouter);
 
 app.use((error, _request, response, _next) => {
   response.status(500).json({
