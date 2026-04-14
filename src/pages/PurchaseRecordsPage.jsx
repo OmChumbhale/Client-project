@@ -38,7 +38,7 @@ function PurchaseRecordsPage() {
         <div className="relative min-w-0 flex-1 xl:max-w-sm"><Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted" /><input className="field-input pl-11" value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Search by shop or invoice..." /></div>
         <select className="field-input xl:w-52" value={status} onChange={(event) => setStatus(event.target.value)}><option>All Status</option><option>Paid</option><option>Credit</option><option>Overdue</option></select>
         <select className="field-input xl:w-52" value={dateRange} onChange={(event) => setDateRange(event.target.value)}><option>All Dates</option><option>Today</option><option>This Week</option><option>This Month</option></select>
-        <ActionButton tone="outline" className="xl:ml-auto"><Download className="h-4 w-4" />Export</ActionButton>
+       
       </Toolbar>
       <DataTable columns={columns} rows={filteredRows} />
     </div>

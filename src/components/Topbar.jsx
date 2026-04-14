@@ -1,4 +1,5 @@
 import { Bell, LogOut } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import usePageTitle from '../hooks/usePageTitle';
@@ -6,13 +7,28 @@ import usePageTitle from '../hooks/usePageTitle';
 function Topbar({ navigation }) {
   const { user, logout } = useAuth();
   const title = usePageTitle(navigation);
-  const currentDate = new Intl.DateTimeFormat('en-GB', {
-    weekday: 'short',
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric',
-  }).format(new Date());
+  const [currentDate, setCurrentDate] = useState('');
   const initials = user?.username?.slice(0, 2).toUpperCase() || 'AD';
+
+  useEffect(() => {
+    const formatter = new Intl.DateTimeFormat('en-GB', {
+      weekday: 'short',
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric',
+      timeZone: 'Asia/Kolkata',
+    });
+
+    const updateCurrentDate = () => {
+      setCurrentDate(formatter.format(new Date()));
+    };
+
+    updateCurrentDate();
+
+    const intervalId = window.setInterval(updateCurrentDate, 60 * 1000);
+
+    return () => window.clearInterval(intervalId);
+  }, []);
 
   return (
     <header className="sticky top-0 z-30 border-b border-border/80 bg-white/85 backdrop-blur">
