@@ -43,20 +43,25 @@ export async function ensureDataReady() {
       return;
     }
 
-    process.env.DATA_MODE = 'database';
-
     try {
       if (mongoose.connection.readyState !== 1) {
         await mongoose.connect(mongoUri, {
           serverSelectionTimeoutMS: 8000,
         });
       }
-
-      await seedDatabase();
     } catch (error) {
       process.env.DATA_MODE = 'memory';
       console.error(`MongoDB connection failed: ${error.message}`);
       console.error('Starting API in memory mode using local sample data.');
+      return;
+    }
+
+    process.env.DATA_MODE = 'database';
+
+    try {
+      await seedDatabase();
+    } catch (error) {
+      console.error(`Database seed skipped: ${error.message}`);
     }
   })();
 
