@@ -38,7 +38,7 @@ function LoginPage() {
               <ShieldCheck className="h-4 w-4 text-amber-light" />
               Secure Admin Access
             </div>
-            <h1 className="mt-8 font-heading text-5xl font-extrabold tracking-tight text-amber-light">Jagdamba Traders</h1>
+            <h1 className="mt-8 font-heading text-5xl font-extrabold tracking-tight text-amber-light">Archana Traders Nashik</h1>
             <p className="mt-5 max-w-md text-base leading-7 text-white/70">
               Sign in to manage wholesale purchases, stock, customer credit, and live records stored in MongoDB Atlas.
             </p>
@@ -60,7 +60,7 @@ function LoginPage() {
               </div>
               <h2 className="mt-6 font-heading text-4xl font-bold tracking-tight text-ink">Admin Login</h2>
               <p className="mt-3 text-sm leading-6 text-muted">
-                Enter your admin credentials to open the Jagdamba Traders, Nashik dashboard.
+                Enter your admin credentials to open the Archana Traders Nashik dashboard.
               </p>
             </div>
 
@@ -73,7 +73,7 @@ function LoginPage() {
                   className="field-input mt-2"
                   value={form.username}
                   onChange={(event) => setForm((current) => ({ ...current, username: event.target.value }))}
-                  placeholder="Jagdambatraders"
+                  placeholder="ArchanaTradersNashik"
                   autoComplete="username"
                 />
               </div>

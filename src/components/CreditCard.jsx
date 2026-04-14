@@ -15,7 +15,7 @@ function normalizePhoneNumber(contact) {
 }
 
 function createReminderMessage(entry) {
-  return `Hello ${entry.owner || entry.shopName}, this is a payment reminder from Jagdamba Traders, Nashik for invoice ${entry.invoice}. Amount due: ${entry.amountDue}. Due date: ${entry.dueDate}. Please arrange payment at the earliest.`;
+  return `Hello ${entry.owner || entry.shopName}, this is a payment reminder from Archana Traders Nashik for invoice ${entry.invoice}. Amount due: ${entry.amountDue}. Due date: ${entry.dueDate}. Please arrange payment at the earliest.`;
 }
 
 function CreditCard({ entry }) {

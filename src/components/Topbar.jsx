@@ -6,7 +6,7 @@ import usePageTitle from '../hooks/usePageTitle';
 function Topbar({ navigation }) {
   const { user, logout } = useAuth();
   const title = usePageTitle(navigation);
-  const currentDate = new Intl.DateTimeFormat('en-GB', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' }).format(new Date('2026-04-01'));
+  const currentDate = new Intl.DateTimeFormat('en-GB', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' }).format(new Date('2026-04-10'));
   const initials = user?.username?.slice(0, 2).toUpperCase() || 'AD';
 
   return (
@@ -25,7 +25,7 @@ function Topbar({ navigation }) {
             <LogOut className="h-4 w-4" />
             Logout
           </button>
-          <div className="flex h-11 w-11 items-center justify-center rounded-full bg-ink font-heading text-sm font-bold text-amber-light">{initials}</div>
+          <div className="flex h-11 w-11 items-center justify-center rounded-full bg-ink font-heading text-sm font-bold text-amber-light">AF</div>
         </div>
       </div>
     </header>

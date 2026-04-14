@@ -15,7 +15,7 @@ function Sidebar({ navigation }) {
       <aside className={`fixed inset-y-0 left-0 z-50 w-64 bg-ink text-white transition-transform duration-300 lg:translate-x-0 ${open ? 'translate-x-0' : '-translate-x-full'}`}>
         <div className="flex h-full flex-col">
           <div className="border-b border-white/10 px-6 pb-5 pt-7">
-            <div className="font-heading text-2xl font-extrabold tracking-tight text-amber-light">Jagdamba Traders</div>
+            <div className="font-heading text-2xl font-extrabold tracking-tight text-amber-light">Archana Traders Nashik</div>
             <div className="mt-1 text-[11px] uppercase tracking-[0.24em] text-white/40">Nashik</div>
           </div>
           <nav className="flex-1 overflow-y-auto py-4">
@@ -37,7 +37,7 @@ function Sidebar({ navigation }) {
               </div>
             ))}
           </nav>
-          <div className="border-t border-white/10 px-6 py-5 text-xs leading-5 text-white/40">Jagdamba Traders<br />Nashik</div>
+          <div className="border-t border-white/10 px-6 py-5 text-xs leading-5 text-white/40">Archana Traders<br />Nashik</div>
         </div>
       </aside>
     </>

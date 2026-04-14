@@ -17,7 +17,7 @@ function NotificationsPage() {
         <div className="space-y-4">{notifications.map((notification) => <NotificationItem key={`${notification.title}-${notification.time}`} notification={notification} />)}</div>
         <aside className="card-shell rounded-[28px] p-6">
           <div className="font-heading text-xl font-bold tracking-tight">Notification Rules</div>
-          <p className="mt-2 text-sm text-muted">Automations currently enabled for Jagdamba Traders, Nashik credit and stock monitoring.</p>
+          <p className="mt-2 text-sm text-muted">Automations currently enabled for Archana Traders Nashik credit and stock monitoring.</p>
           <div className="mt-5 space-y-3">{notificationRules.map((rule) => <div key={rule} className="flex items-center justify-between rounded-2xl bg-warm/70 px-4 py-3"><span className="text-sm font-medium text-ink">{rule}</span><span className="h-2.5 w-2.5 rounded-full bg-green" /></div>)}</div>
         </aside>
       </div>

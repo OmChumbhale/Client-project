@@ -5,7 +5,7 @@ async function startServer() {
   await ensureDataReady();
 
   app.listen(port, () => {
-    console.log(`Jagdamba Traders API running on http://localhost:${port}`);
+    console.log(`Archana Traders Nashik API running on http://localhost:${port}`);
   });
 }
 

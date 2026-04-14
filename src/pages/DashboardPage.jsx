@@ -24,7 +24,7 @@ function DashboardPage() {
 
   return (
     <div className="space-y-6">
-      <SectionHeader title="HELLO! JAGDAMBA TRADERS" description="Here's what is happening across your wholesale footwear business today." action={<ActionButton onClick={() => openModal('purchase')}><Plus className="h-4 w-4" />New Purchase</ActionButton>} />
+      <SectionHeader title="HELLO! ARCHANA TRADERS NASHIK" description="Here's what is happening across your wholesale footwear business today." action={<ActionButton onClick={() => openModal('purchase')}><Plus className="h-4 w-4" />New Purchase</ActionButton>} />
       {error ? <AlertBanner tone="danger">Backend sync issue: {error}</AlertBanner> : null}
       <AlertBanner><span className="font-semibold">3 shops</span> have credit cycles ending in the next 7 days. <Link to="/credit" className="font-semibold underline">Review now</Link></AlertBanner>
       <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">{stats.map((stat) => <StatCard key={stat.label} stat={stat} />)}</section>

@@ -26,7 +26,7 @@ function buildMongoUri() {
 
   const encodedUsername = encodeURIComponent(username);
   const encodedPassword = encodeURIComponent(password);
-  return `mongodb+srv://${encodedUsername}:${encodedPassword}@${cluster}/${databaseName}?retryWrites=true&w=majority&appName=JagdambaTradersNashik`;
+  return `mongodb+srv://${encodedUsername}:${encodedPassword}@${cluster}/${databaseName}?retryWrites=true&w=majority&appName=ArchanaTradersNashik`;
 }
 
 export async function ensureDataReady() {
