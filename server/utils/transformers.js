@@ -6,17 +6,38 @@ export function formatCurrency(amount) {
   return `Rs ${new Intl.NumberFormat('en-IN').format(amount)}`;
 }
 
-function formatDateKey(dateLike) {
+function getDatePartsInIndia(dateLike) {
   const date = new Date(dateLike);
 
   if (Number.isNaN(date.getTime())) {
+    return null;
+  }
+
+  const formatter = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Asia/Kolkata',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  });
+
+  const parts = formatter.formatToParts(date);
+  const values = Object.fromEntries(parts.map((part) => [part.type, part.value]));
+
+  return {
+    year: values.year,
+    month: values.month,
+    day: values.day,
+  };
+}
+
+function formatDateKey(dateLike) {
+  const parts = getDatePartsInIndia(dateLike);
+
+  if (!parts) {
     return '';
   }
 
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const day = String(date.getDate()).padStart(2, '0');
-  return `${year}-${month}-${day}`;
+  return `${parts.year}-${parts.month}-${parts.day}`;
 }
 
 export function computeStockStatus(quantity, minStock = 40) {
