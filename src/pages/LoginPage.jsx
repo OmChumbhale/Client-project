@@ -6,6 +6,7 @@ import { useAuth } from '../context/AuthContext';
 function LoginPage() {
   const { login, isAuthenticated, authLoading } = useAuth();
   const location = useLocation();
+  const adminUsernameHint = import.meta.env.VITE_ADMIN_USERNAME || 'Jagdambatraders';
   const [form, setForm] = useState({ username: '', password: '' });
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
@@ -64,7 +65,7 @@ function LoginPage() {
               </p>
             </div>
 
-            <form className="space-y-5" onSubmit={handleSubmit}>
+            <form className="space-y-5" onSubmit={handleSubmit} autoComplete="off">
               <div>
                 <label className="field-label" htmlFor="username">Username</label>
                 <input
@@ -73,8 +74,8 @@ function LoginPage() {
                   className="field-input mt-2"
                   value={form.username}
                   onChange={(event) => setForm((current) => ({ ...current, username: event.target.value }))}
-                  placeholder="ArchanaTradersNashik"
-                  autoComplete="username"
+                  placeholder={adminUsernameHint}
+                  autoComplete="off"
                 />
               </div>
 
@@ -87,7 +88,7 @@ function LoginPage() {
                   value={form.password}
                   onChange={(event) => setForm((current) => ({ ...current, password: event.target.value }))}
                   placeholder="traders123"
-                  autoComplete="current-password"
+                  autoComplete="off"
                 />
               </div>
 
